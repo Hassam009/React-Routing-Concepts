@@ -1,9 +1,9 @@
 import React from 'react'
 
-const About = () => {
+const About = ({title}) => {
   return (
     <div>
-      <h1>I am About Section</h1>
+      <h1>{title}</h1>
     </div>
   )
 }
