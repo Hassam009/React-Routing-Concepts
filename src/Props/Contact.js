@@ -17,6 +17,24 @@ const Contact = () => {
       });
     };
   
+
+const [count, setCount]=useState(3)
+
+function DecrementCount(){
+    if(count===0){
+        return count;
+    }
+    else{
+        setCount(count-1);
+    }
+
+};
+function IncrementCount(){
+   setCount(count+1);
+
+};
+
+
     return (
       <>
         <div className="d-flex justify-content-center align-items-center vh-100">
@@ -59,8 +77,13 @@ const Contact = () => {
           </form>
           <div>
             <p>{`My name is ${formData.username} and My email is ${formData.email}`}</p>
+            <button type="button" class="btn btn-primary"  onClick={DecrementCount}>Reduce</button>
+        <span>{count}</span>
+<button type="button" class="btn btn-secondary"  onClick={IncrementCount}>Improve</button>
           </div>
         </div>
+
+
       </>
     );
   }
