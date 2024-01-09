@@ -1,27 +1,69 @@
-import React from 'react'
+import React, { useState } from 'react';
+
+// ... (other imports)
 
 const Contact = () => {
-  return (
-  <>
+    const [formData, setFormData] = useState({
+      username: "",
+      email: "",
+    });
   
-  <form>
-  <div className="mb-3">
-    <label for="exampleInputEmail1" className="form-label">Email address</label>
-    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
-    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-  </div>
-  <div className="mb-3">
-    <label for="exampleInputPassword1" className="form-label">Password</label>
-    <input type="password" className="form-control" id="exampleInputPassword1"/>
-  </div>
-  <div className="mb-3 form-check">
-    <input type="checkbox" className="form-check-input" id="exampleCheck1"/>
-    <label className="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" className="btn btn-primary">Submit</button>
-</form>
-  </>
-  )
-}
-
-export default Contact
+    const handleInput = (event) => {
+      const name = event.target.name;
+      const value = event.target.value;
+  
+      setFormData((prev) => {
+        return { ...prev, [name]: value };
+      });
+    };
+  
+    return (
+      <>
+        <div className="d-flex justify-content-center align-items-center vh-100">
+          <form style={{ width: '50%' }}>
+            <div className="mb-3">
+              <label htmlFor="exampleInputEmail1" className="form-label">
+                Email address
+              </label>
+              <input
+                type="email"
+                className="form-control"
+                id="exampleInputEmail1"
+                aria-describedby="emailHelp"
+                name="email"
+                value={formData.email}
+                onChange={handleInput}
+              />
+              <div id="emailHelp" className="form-text">
+                We'll never share your email with anyone else.
+              </div>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="exampleInputName" className="form-label">
+                Your Name
+              </label>
+              <input
+                type="text"  // Assuming it's a text input for the name
+                className="form-control"
+                id="exampleInputName"
+                aria-describedby="nameHelp"
+                name="username"
+                value={formData.username}
+                onChange={handleInput}
+              />
+              <div id="nameHelp" className="form-text">
+                We'll never share your name with anyone else.
+              </div>
+            </div>
+            {/* ... (other form elements) */}
+          </form>
+          <div>
+            <p>{`My name is ${formData.username} and My email is ${formData.email}`}</p>
+          </div>
+        </div>
+      </>
+    );
+  }
+  
+  export default Contact;
+  
