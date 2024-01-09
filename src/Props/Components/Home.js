@@ -12,9 +12,9 @@ const Home = (props) => {
       <Card TitleName="Image 3" src="/Images/B2.jpg" ></Card>
    
     </div>
-    <button type="button" class="btn btn-primary">Read More</button>
-    <button type="button" class="btn btn-secondary">Secondary</button>
-    <button type="button" class="btn btn-success">Success</button>
+    <button type="button" className="btn btn-primary">Read More</button>
+    <button type="button" className="btn btn-secondary">Secondary</button>
+    <button type="button" className="btn btn-success">Success</button>
     </>
     
   )
