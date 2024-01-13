@@ -1,11 +1,14 @@
 import React from 'react'
-import Header from './Header'
+
+import Parent from './Parent'
 
 const Services = () => {
   return (
     <>
-      <Header></Header>
-   <h1>Now i will apply useContext Hook</h1>
+    
+     <Parent></Parent>
+   
+
     </>
  
   )
