@@ -3,7 +3,11 @@ import React from 'react'
 import Parent from './Parent'
 
 const Services = () => {
-  const listItems=["Item 1", "Item 2", "Item 3"]
+  const listItems=[
+  {ID:1 , text:"Item 1"},
+  {ID:2 , text:"Item 2"} ,
+  {ID:3 , text:"Item 3"} 
+]
   return (
     <>
     
@@ -11,8 +15,8 @@ const Services = () => {
    
 <h2>Now i used the Concepts of List and Keys</h2>
 <ul>
-  {listItems.map((Items, index)=>(
-<li>{Items}</li>
+  {listItems.map((Items)=>(
+<li key={Items.ID}>{Items.ID} Item is {Items.text}</li>
 
   ))}
 </ul>
