@@ -3,32 +3,32 @@ import ReducerHook from "./Hooks/ReducerHook"
 // ... (other imports)
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   username: "",
+  //   email: "",
+  // });
 
-  const handleInput = (event) => {
-    const name = event.target.name;
-    const value = event.target.value;
+  // const handleInput = (event) => {
+  //   const name = event.target.name;
+  //   const value = event.target.value;
 
-    setFormData((prev) => {
-      return { ...prev, [name]: value };
-    });
-  };
+  //   setFormData((prev) => {
+  //     return { ...prev, [name]: value };
+  //   });
+  // };
 
-  const [count, setCount] = useState(3);
+  // const [count, setCount] = useState(3);
 
-  function DecrementCount() {
-    if (count === 0) {
-      return count;
-    } else {
-      setCount(count - 1);
-    }
-  }
-  function IncrementCount() {
-    setCount(count + 1);
-  }
+  // function DecrementCount() {
+  //   if (count === 0) {
+  //     return count;
+  //   } else {
+  //     setCount(count - 1);
+  //   }
+  // }
+  // function IncrementCount() {
+  //   setCount(count + 1);
+  // }
 
   const [inputValue, setInputValue] = useState('');
 
@@ -41,7 +41,10 @@ const Contact = () => {
     // Do something with the form data (e.g., send it to a server)
     console.log('Form submitted with value:', inputValue);
   }
-
+const [fullName, setfullName]=useState();
+  const onSubmit=()=>{
+setfullName(inputValue);
+  }
 
   return (
     <>
@@ -103,11 +106,14 @@ const Contact = () => {
         </div>
       </div> */}
     <form onSubmit={handleSubmit}>
+      <h1>Hello {fullName} </h1>
       <label>
         Input:
-        <input type="text" value={inputValue} onChange={handleChange} />
+        <input type="text" value={inputValue} onChange={handleChange} 
+        />
       </label>
-      <button type="submit">Submit</button>
+      <br />
+      <button type="submit" onClick={onSubmit}>Submit</button>
     </form>
 
 
