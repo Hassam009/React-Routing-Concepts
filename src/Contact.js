@@ -30,9 +30,22 @@ const Contact = () => {
     setCount(count + 1);
   }
 
+  const [inputValue, setInputValue] = useState('');
+
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Do something with the form data (e.g., send it to a server)
+    console.log('Form submitted with value:', inputValue);
+  }
+
+
   return (
     <>
-      <div className="d-flex justify-content-center align-items-center vh-100">
+      {/* <div className="d-flex justify-content-center align-items-center vh-100">
         <form style={{ width: "50%" }}>
           <div className="mb-3">
             <label htmlFor="exampleInputEmail1" className="form-label">
@@ -67,9 +80,9 @@ const Contact = () => {
             <div id="nameHelp" className="form-text">
               We'll never share your name with anyone else.
             </div>
-          </div>
+          </div> */}
           {/* ... (other form elements) */}
-        </form>
+        {/* </form>
         <div>
           <p>{`My name is ${formData.username} and My email is ${formData.email}`}</p>
           <button
@@ -88,7 +101,17 @@ const Contact = () => {
             Improve
           </button>
         </div>
-      </div>
+      </div> */}
+    <form onSubmit={handleSubmit}>
+      <label>
+        Input:
+        <input type="text" value={inputValue} onChange={handleChange} />
+      </label>
+      <button type="submit">Submit</button>
+    </form>
+
+
+
 
 <ReducerHook></ReducerHook>
     
